@@ -1,0 +1,10 @@
+KNOWN ISSUES
+------------
+The Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 member server GPO are configured to the strictest setting (Local Account instead of Local account and member of Administrators group) for user right assignments values. The setting Deny access to this computer from the network must be relaxed to Local account and member of Administrators group on a system attempting to configure as member of cluster.
+
+Windows 11 STIG ID V-253303 is set to a value of 14. The STIG requirement of 15 characters is not supported via GPO configuration. To achieve this configuration, sites must deploy a Fine Grain Password Policy within the environment.
+
+Expanding compressed files may error due to the file structure depth. Try expanding files to the root of the system C:\ or C:\Temp.
+
+Prior to the July 2023 release, the policy value Computer Configuration > Administrative Templates > System > Remote Procedure Call > Restricted Unauthenticated RPC client was configured within the DoD WinSvr 2016 DC STIG Comp vXrX and DoD WinSvr 2022 DC STIG Comp vXrX GPOs. The setting has been removed from the DoD WinSvr 2016 DC STIG Comp vXrX and DoD WinSvr 2022 DC STIG Comp vXrX GPOs to match DoD WinSvr 2012 R2 DC STIG Comp vXrX and DoD WinSvr 2019 DC STIG Comp vXrX.
+Applying any local policy member server Computer STIG GPO to a system will configure this setting. Promoting system prior to removing this setting will allow setting to remain configured. It is the systems administrator's responsibility to review and remove any delta configurations between local policy member server configurations and the domain controller policies.
